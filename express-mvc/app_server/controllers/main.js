@@ -6,5 +6,7 @@ const index = (req, res) => {
 const kontak = (req, res) => {
     res.render('kontak', { title: 'Express'});
 };
-
-module.exports = { index, kontak }; 
+// const mahasiswa = (req, res) => {
+//  	res.render('mahasiswa', { title: 'Express' }); 
+// }; 
+module.exports = { index, kontak}; 
