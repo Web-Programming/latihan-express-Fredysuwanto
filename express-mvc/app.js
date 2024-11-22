@@ -9,6 +9,8 @@ require('./app_server/models/db');
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 var mahasiswaRouter = require('./app_server/routes/mahasiswa');
+var housingRouter = require('./app_server/routes/housing');
+
 var app = express();
 
 // view engine setup
@@ -24,7 +26,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/mahasiswa', mahasiswaRouter);
+app.use('/housing', housingRouter);
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); //allow all domains
+  next();
+});
+
+// app.use("/housing",(req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', '*'); //allow all domains
+//   next();
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

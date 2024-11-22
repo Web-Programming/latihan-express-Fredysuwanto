@@ -45,10 +45,14 @@ export class DetailsComponent {
   })
   constructor() {
     this.housingLocationId = Number(this.route.snapshot.params['id'])
-    this.housingLocation = this.housingService.getHousingLocationById(this.housingLocationId)
-    console.log (this.housingLocation);
+    this.housingService.getHousingLocationById(this.housingLocationId). then (housingLocation => {
+      this.housingLocation = housingLocation
+    })
+    // console.log (this.housingLocation);
   }
   submitApplication(){
-    console.log(this.applyForm.value.firstName)
+    this.housingService.submitApplication(
+      this.applyForm.value.firstName ?? '',
+    )
   }
 }
