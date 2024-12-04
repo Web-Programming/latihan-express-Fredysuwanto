@@ -19,7 +19,7 @@ export class HousingService {
     const data = await fetch(this.url +"/" + id);
     return await data.json() ?? {};
   }
-  submitApplication(fisrtName: String, lastName:String, email: String){
+  submitApplication(fisrtName: String, lastName: String, email : String){
     console.log(fisrtName,lastName,email);
   }
 }
